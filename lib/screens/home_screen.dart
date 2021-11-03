@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:islamy_app/widgets/hadeth_screen_widget/hadeth_screen.dart';
 import 'package:islamy_app/widgets/quran_screen_widget/quran_screen.dart';
 import 'package:islamy_app/widgets/radio_screen.dart';
@@ -35,6 +36,9 @@ class _MainScreenState extends State<MainScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarBrightness: Brightness.light,
+          ),
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           centerTitle: true,
