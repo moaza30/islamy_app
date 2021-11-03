@@ -60,25 +60,33 @@ class _MainScreenState extends State<MainScreen> {
             setState(() {});
           },
           selectedLabelStyle: TextStyle(
-            fontSize: 16,
+            fontSize: 15,
           ),
-          iconSize: 25,
+          iconSize: 36,
           items: [
             BottomNavigationBarItem(
               label: "الراديو",
-              icon: Image.asset('assets/icons/ic_radio.png'),
+              icon: ImageIcon(
+                AssetImage('assets/icons/ic_radio.png'),
+              ),
             ),
             BottomNavigationBarItem(
               label: 'التسبيح',
-              icon: Image.asset('assets/icons/sebha.png'),
+              icon: ImageIcon(
+                AssetImage('assets/icons/sebha.png'),
+              ),
             ),
             BottomNavigationBarItem(
               label: 'الاحاديث',
-              icon: Image.asset('assets/icons/quran-quran-svgrepo-com.png'),
+              icon: ImageIcon(
+                AssetImage('assets/icons/quran-quran-svgrepo-com.png'),
+              ),
             ),
             BottomNavigationBarItem(
               label: 'القران',
-              icon: Image.asset('assets/icons/quran.png'),
+              icon: ImageIcon(
+                AssetImage('assets/icons/quran.png'),
+              ),
             ),
           ],
         ),
