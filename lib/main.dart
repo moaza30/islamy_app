@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Islamy',
-      home: SoraDetails(),
+      home: MainScreen(),
+      routes: {
+        SoraDetails.routeName: (context) => SoraDetails(),
+      },
     );
   }
 }

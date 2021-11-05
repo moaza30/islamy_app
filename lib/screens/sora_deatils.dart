@@ -1,9 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islamy_app/models/quran_data.dart';
 
-class SoraDetails extends StatelessWidget {
+class SoraDetails extends StatefulWidget {
+  static const routeName = 'sora_details';
+
+  @override
+  State<SoraDetails> createState() => _SoraDetailsState();
+}
+
+class _SoraDetailsState extends State<SoraDetails> {
+  late int index;
+  String? sora;
+
+  void loadSora(int index) async {
+    sora = await QuranData.readSora(index);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
+    index = ModalRoute.of(context)!.settings.arguments as int;
+    if (sora == null) {
+      loadSora(index);
+    }
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -16,6 +36,8 @@ class SoraDetails extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
+          //change default back button
+          iconTheme: IconThemeData(color: Colors.black),
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarBrightness: Brightness.light,
           ),
@@ -49,29 +71,37 @@ class SoraDetails extends StatelessWidget {
               ],
             ),
           ),
-          child: Container(
-            child: Column(
-              children: [
-                Text(
-                  'sadas',
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                  ),
+          child: Column(
+            children: [
+              Text(
+                QuranData.quranNames[index],
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
                 ),
-                Divider(
-                  thickness: 1,
-                  color: Color.fromRGBO(183, 147, 95, 1.0),
+              ),
+              Divider(
+                thickness: 1,
+                color: Color.fromRGBO(183, 147, 95, 1.0),
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: (sora == null)
+                      ? Center(
+                          child: CircularProgressIndicator.adaptive(),
+                        )
+                      : Text(
+                          sora!,
+                          textDirection: TextDirection.rtl,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 22,
+                            height: 2,
+                          ),
+                        ),
                 ),
-                Text(
-                  'sadas',
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

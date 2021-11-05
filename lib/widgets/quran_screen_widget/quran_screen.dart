@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamy_app/models/quran_data.dart';
+import 'package:islamy_app/screens/sora_deatils.dart';
 import 'package:islamy_app/widgets/quran_screen_widget/quran_header.dart';
 import 'package:islamy_app/widgets/quran_screen_widget/quran_list_details.dart';
 
@@ -23,9 +24,15 @@ class QuranScreen extends StatelessWidget {
                   child: ListView.builder(
                     itemCount: QuranData.quranNames.length,
                     itemBuilder: (context, index) {
-                      return QuranList(
-                        ayatNumber: QuranData.ayatNumbers[index],
-                        ayatName: QuranData.quranNames[index],
+                      return InkWell(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(SoraDetails.routeName,
+                              arguments: index);
+                        },
+                        child: QuranList(
+                          ayatNumber: QuranData.ayatNumbers[index],
+                          ayatName: QuranData.quranNames[index],
+                        ),
                       );
                     },
                   ),

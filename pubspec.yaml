@@ -29,10 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  arabic_numbers: ^1.0.0
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -61,6 +58,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/quran_content/
 
 
 
