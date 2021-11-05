@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamy_app/screens/hadeth_details.dart';
 import 'package:islamy_app/screens/home_screen.dart';
 import 'package:islamy_app/screens/sora_deatils.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       home: MainScreen(),
       routes: {
         SoraDetails.routeName: (context) => SoraDetails(),
+        HadethDetails.routeName: (context) => HadethDetails(),
       },
     );
   }
