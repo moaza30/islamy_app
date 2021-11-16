@@ -29,12 +29,26 @@ class _Sb7aState extends State<Sb7a> {
       children: [
         Expanded(
           child: Container(
-            padding: EdgeInsets.only(top: 50),
             width: MediaQuery.of(context).size.width,
             child: Column(
               children: [
-                Transform.rotate(
-                    angle: angle, child: Image.asset('assets/images/Sb7a.png')),
+                Stack(
+                  children: [
+                    Container(
+                      alignment: Alignment.topCenter,
+                      child: Image.asset('assets/images/head of sb7a.png'),
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.width * 0.19),
+                      child: Transform.rotate(
+                        angle: angle,
+                        child: Image.asset('assets/images/sb7a.png'),
+                      ),
+                    ),
+                  ],
+                ),
                 Container(
                   margin: EdgeInsets.only(top: 30, bottom: 15),
                   child: Text(
