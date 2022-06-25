@@ -13,7 +13,7 @@ class QuranData {
       if (i == 0) {
         sora = ayat[i].trim() + ' {${ArabicNumbers().convert(i + 1)}} ';
       } else {
-        sora = sora! + ayat[i].trim() + ' {${ArabicNumbers().convert(i + 1)}} ';
+        sora = sora + ayat[i].trim() + ' {${ArabicNumbers().convert(i + 1)}} ';
       }
     }
 
